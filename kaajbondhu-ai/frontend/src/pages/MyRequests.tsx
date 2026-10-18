@@ -1,0 +1,10 @@
+import { Link } from 'react-router';
+import { Clock3, MapPin } from 'lucide-react';
+import { ContactLink } from '@/components/ProviderCard';
+import { trades, type ServiceRequest } from '@/types';
+
+export default function MyRequests({ requests }: { requests: ServiceRequest[] }) {
+  return <section className="mx-auto max-w-4xl"><p className="eyebrow">Your dashboard</p><h1 className="mt-2 text-4xl font-bold tracking-tight">My requests</h1><p className="mt-3 text-sm leading-6 text-[#607a74]">Saved on this browser. Contact the professional to confirm availability, price, and a visit. Pending does not mean accepted.</p>
+    <div className="mt-7 flex flex-col gap-4">{requests.length ? requests.map(request => <article key={request.id} className="panel"><div className="flex items-start justify-between gap-3"><div><h2 className="text-xl font-bold">{request.provider.name}</h2><p className="mt-1 text-sm text-[#607a74]">{trades[request.provider.trade]}</p></div><span className="rounded-full bg-[#fff0db] px-3 py-1 text-xs font-semibold text-[#a76511]">{request.status}</span></div><p className="mt-4 text-sm leading-6">{request.problem_summary}</p>{request.note && <p className="mt-2 text-sm text-[#607a74]">Note: {request.note}</p>}<div className="mt-4 flex flex-wrap gap-4 text-xs text-[#607a74]"><span className="flex items-center gap-1"><MapPin className="size-4" />{request.address}</span><span className="flex items-center gap-1"><Clock3 className="size-4" />{new Date(request.createdAt).toLocaleString()}</span></div><p className="mt-3 text-xs break-all text-[#607a74]">{request.id}</p><div className="mt-4 border-t pt-4"><ContactLink provider={request.provider} /></div></article>) : <div className="panel py-12 text-center"><h2 className="text-xl font-bold">No requests yet</h2><p className="mt-2 text-sm text-[#607a74]">Find the right person for your next job.</p><Link to="/" className="mt-5 inline-block rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white">Find help</Link></div>}</div>
+  </section>;
+}

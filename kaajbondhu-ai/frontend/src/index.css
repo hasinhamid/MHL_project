@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: #f7fbfa;
+  --color-foreground: #183b37;
+  --color-primary: #0b7b69;
+  --color-primary-foreground: #ffffff;
+  --color-border: #d9e9e5;
+  --color-ring: #0b7b69;
+  --color-input: #dcebe8;
+  --color-muted: #eaf5f2;
+  --color-muted-foreground: #607a74;
+  --color-destructive: #b33636;
+  --color-accent: #e7f5f1;
+  --color-accent-foreground: #183b37;
+  --color-secondary: #eaf5f2;
+  --color-secondary-foreground: #183b37;
+}
+
+@layer base {
+  :root { --radius: 0.625rem; color-scheme: light; }
+  * { @apply border-border; }
+  body { @apply m-0 bg-background text-foreground antialiased; font-family: Arial, 'Noto Sans Bengali', sans-serif; }
+  button, a, input, select, textarea { @apply outline-offset-4; }
+  button:not(:disabled), select { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+}
+
+@layer components {
+  .field { @apply w-full rounded-xl border border-[#dcebe8] bg-white px-4 py-3 text-sm font-normal text-[#183b37] outline-none focus:border-[#0b7b69] focus:ring-4 focus:ring-[#0b7b69]/10; }
+  .panel { @apply rounded-2xl border border-[#d9e9e5] bg-white p-5 sm:p-6; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.16em] text-[#64807a]; }
+  .error { @apply rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800; }
+}

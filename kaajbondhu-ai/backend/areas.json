@@ -1,0 +1,13 @@
+{
+  "Dhanmondi": ["Mohammadpur"],
+  "Mohammadpur": ["Dhanmondi", "Mirpur"],
+  "Mirpur": ["Mohammadpur"],
+  "Uttara": [],
+  "Banani": ["Gulshan"],
+  "Gulshan": ["Banani", "Badda"],
+  "Bashundhara": ["Badda"],
+  "Badda": ["Gulshan", "Bashundhara", "Rampura"],
+  "Rampura": ["Badda", "Khilgaon"],
+  "Khilgaon": ["Rampura", "Motijheel"],
+  "Motijheel": ["Khilgaon"]
+}
